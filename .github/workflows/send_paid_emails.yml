@@ -13,5 +13,4 @@ jobs:
       - name: Call Supabase Edge Function
         run: |
           echo "Calling Supabase Edge Function..."
-          curl -X POST https://emgxngtzflmvqsetwugt.functions.supabase.co/check_confirm_mail
-            -H "x-cron-secret: ${{ secrets.CRON_SECRET }}"
+          curl -X POST https://emgxngtzflmvqsetwugt.functions.supabase.co/check_confirm_mail -H "x-cron-secret: ${{ secrets.CRON_SECRET }}"
