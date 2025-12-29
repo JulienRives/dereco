@@ -7,14 +7,16 @@ on:
   workflow_dispatch: # permet de lancer manuellement depuis GitHub
 
 jobs:
-  call-edge:
+  call-function:
     runs-on: ubuntu-latest
     steps:
-      - name: Call Supabase Edge Function
+      - name: Invoke Supabase Edge Function
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
-          echo "Calling Supabase Edge Function..."
-          curl -L -X POST 'https://emgxngtzflmvqsetwugt.supabase.co/functions/v1/check_confirm_mail' \
-            -H 'Authorization: Bearer sb_publishable_9zr8Ozvb2fbTUtbXndUVlQ_yyf_WAWG' \
-            -H 'apikey: sb_publishable_9zr8Ozvb2fbTUtbXndUVlQ_yyf_WAWG' \
-            -H 'Content-Type: application/json' \
-              --data '{"name":"Functions"}'
+          curl -X POST "$SUPABASE_URL/functions/v1/check_confirm_mail" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "Content-Type: application/json" \
+            --data '{"source":"github-actions"}'
