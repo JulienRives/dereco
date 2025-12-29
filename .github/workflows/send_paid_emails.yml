@@ -18,4 +18,4 @@ jobs:
             -H "apikey: sb_publishable_fnUUvCYYctC9CCJEtbkq6Q_uGrZgTEd" \
             -H "x-cron-secret: ${{ secrets.CRON_SECRET }}" \
             -H "Content-Type: application/json" \
-            --data '{"test":"ok"}'
+            --data '{}'
