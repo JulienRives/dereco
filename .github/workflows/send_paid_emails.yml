@@ -14,8 +14,8 @@ jobs:
         run: |
           echo "Calling Supabase Edge Function..."
           curl -L -X POST 'https://emgxngtzflmvqsetwugt.supabase.co/functions/v1/check_confirm_mail' \
-            -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}" \
-            -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
+            -H "Authorization: Bearer sb_publishable_fnUUvCYYctC9CCJEtbkq6Q_uGrZgTEd" \
+            -H "apikey: sb_publishable_fnUUvCYYctC9CCJEtbkq6Q_uGrZgTEd" \
             -H "x-cron-secret: ${{ secrets.CRON_SECRET }}" \
             -H "Content-Type: application/json" \
             --data '{"test":"ok"}'
