@@ -3,7 +3,7 @@ name: Call Supabase Edge Function
 # Déclenchement toutes les 5 minutes
 on:
   schedule:
-    - cron: "* * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch: # permet de lancer manuellement depuis GitHub
 
 jobs:
